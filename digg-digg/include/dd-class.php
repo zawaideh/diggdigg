@@ -584,6 +584,9 @@ class DD_FbLike_XFBML extends BaseDD{
     	$this->baseURL = str_replace(self::FACEBOOK_SEND,$fb_send_value,$this->baseURL);
     	$this->baseURL = str_replace(self::FACEBOOK_SHOW_FACE,$fb_face_value,$this->baseURL);
     	
+    	if(substr($url, -1) === '/') {
+            $url = substr($url, 0, strlen($url) - 1);
+        }
     	$this->constructNormalURL($url, $title,$button, $postId);
     	    	
     }
